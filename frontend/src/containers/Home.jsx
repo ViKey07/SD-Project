@@ -9,13 +9,14 @@ import Slider from '../components/Places/Slider';
 import axios from 'axios'
 
 const Home = () => {
+    const [search, setSearch ] = useState()
 
 
     return (
         <section className="content">
-            <Header/>  
+            <Header setSearch={setSearch}/>  
             <Slider/>   
-            <Attractions/>
+            <Attractions search={search} />
             <PlaceInfo/>
             <Maps />
             <FootBody/>

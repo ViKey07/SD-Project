@@ -3,7 +3,13 @@ import BackImg from '../../assets/img/Taj-Mahal.png'
 import Logo from '../../assets/img/logo.png'
 import Srch from '../../assets/img/search.png'
 import {Link} from 'react-router-dom'
-function Header() {
+import { useState } from 'react';
+function Header({setSearch}) {
+    const [searchContent, setSearchContent] = useState('')
+    function handleClick (){
+        setSearch(searchContent)
+
+    }
   return (
     <div>
         <header>
@@ -32,8 +38,8 @@ function Header() {
                     <h3 className="heading">Let's Travel the World...!</h3>
                     
                     <div className="search-bar">
-                        <input type="text" className="text" placeholder="Search your destination"/>
-                        <img className="search-bar-logo" src={Srch} alt="search" width="25px" height="25px"/>
+                        <input type="text" onChange={(e)=>{setSearchContent(e.target.value)}} className="text" placeholder="Search your destination"/>
+                        <img className="search-bar-logo" onClick={handleClick} src={Srch} alt="search" width="25px" height="25px"/>
                     </div>
                 </div>
             </section>

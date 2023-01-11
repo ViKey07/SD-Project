@@ -14,11 +14,16 @@ import axios from 'axios'
 import {Link} from 'react-router-dom'
 
 
-function Attractions() {
+function Attractions({search}) {
     const [places, setPlaces] = useState()
     useEffect (()=>{
      axios.get('http://127.0.0.1:8000/places/').then((res)=>{setPlaces(res.data.results)})
     },[])
+    useEffect (()=>{
+        if(search){
+            axios.get('http://127.0.0.1:8000/places/?search='+search).then((res)=>{setPlaces(res.data.results)})
+        }
+       },[search])
     console.log(places)
   return (
     <div>
@@ -46,6 +51,10 @@ function Attractions() {
     </div>
         
     ))}
+
+    {places && places.length === 0 && search !==''&& <>
+    <h1>No Places found</h1>
+    </>}
 
 </div>
 </section>
