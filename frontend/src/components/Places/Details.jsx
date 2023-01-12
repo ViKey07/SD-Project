@@ -25,6 +25,9 @@ function Details() {
   const location = useLocation()
   const state = location.state
   console.log(place);
+
+
+  
   return (
     <>
        <header>
@@ -35,13 +38,14 @@ function Details() {
                     <img src={Logo} alt="" className="home-icon" />
                 </div>
                 </Link>
+                
 
-                <div className="home-nav">
-                    <h6 className="home-h6">HOME</h6>
-                    <h6 className="home-h6">TOURIST ATTRACTIONS</h6>
-                    <h6 className="home-h6">WONDERS IN WORLD</h6>
-                    <h6 className="home-h6">FAVOURITE</h6>
-                </div>
+                {/* <div className="home-nav">
+                    <a href="#home"><h6 className="home-h6">HOME</h6></a>
+                    <a href="#scroll-attractions"><h6 className="home-h6">TOURIST ATTRACTIONS</h6></a>
+                    <a href="#places-info"><h6 className="home-h6">WONDERS IN WORLD</h6></a>
+                    <a href="#mapi"><h6 className="home-h6">FAVOURITE</h6></a>
+                </div> */}
             </nav>
         </div>
     </header>

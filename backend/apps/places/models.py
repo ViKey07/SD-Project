@@ -19,7 +19,7 @@ class Places(models.Model):
         Category, on_delete=models.CASCADE
     )
     decription = models.CharField(
-        'decription', blank=False, null=False, max_length=5000, db_index=True
+        'decription', blank=True, null=True, default='', max_length=50000
     )
     short_desc = models.CharField(
         'desc', blank=True, null=True, default='', max_length=10000

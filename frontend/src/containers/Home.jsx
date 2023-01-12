@@ -9,7 +9,7 @@ import Slider from '../components/Places/Slider';
 import axios from 'axios'
 
 const Home = () => {
-    const [search, setSearch ] = useState()
+    const [search, setSearch ] = useState('')
 
 
     return (

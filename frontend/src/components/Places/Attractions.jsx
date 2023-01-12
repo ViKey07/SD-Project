@@ -9,7 +9,7 @@ import Colossus from '../../assets/img/Colossus.png'
 import Lighthouse from '../../assets/img/Lighthouse.png'
 import Petra from '../../assets/img/Petra.png'
 import Christ from '../../assets/img/Christ Redeemer.png'
-import Rome from '../../assets/img/Rome.png'
+import Rome from '../../assets/img/colosseum.png'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
 
@@ -17,8 +17,11 @@ import {Link} from 'react-router-dom'
 function Attractions({search}) {
     const [places, setPlaces] = useState()
     useEffect (()=>{
-     axios.get('http://127.0.0.1:8000/places/').then((res)=>{setPlaces(res.data.results)})
-    },[])
+        if(search===''){
+            axios.get('http://127.0.0.1:8000/places/').then((res)=>{setPlaces(res.data.results)})
+
+        }
+    },[search])
     useEffect (()=>{
         if(search){
             axios.get('http://127.0.0.1:8000/places/?search='+search).then((res)=>{setPlaces(res.data.results)})
